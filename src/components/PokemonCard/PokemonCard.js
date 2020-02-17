@@ -3,22 +3,23 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 
 
-function PokemonCard ({ id, name }) {
-        return (
-            <div className="pokemon-card">
+
+const PokemonCard = ({ id, name }) => 
+        (
+            <li className="pokemon-card">
                 <Link to={`${id}`}>
                 <img
                     className="pokemon-img"
-                    src={`../../../pokemons/${id}.png`}
+                    src={`../../../pokemons/${id}.png`}                   
                     alt=""
-                   
+                    width="100px"
+                    height="100px"
                 />
-                <br />
                 <div className="pokemon-name">{name}</div>
                 </Link>
-            </div>
-    );
-  }
+            </li>
+        );
+
 
 
 export default PokemonCard;

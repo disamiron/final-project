@@ -1,4 +1,27 @@
+body {
+    font-family: 'Odibee Sans';
+}
+
 h1 {
     color: #27aedb;
     text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-start;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
+    Margin: 15px;
+    Width:calc(33.3333333% - 30px);
+    Display: flex;
+    Flex-direction: column;
+    Align-items: center;
 }

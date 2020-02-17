@@ -51,7 +51,7 @@ class App extends Component {
     render() {
         return (
         <Router>
-            <h2>POKEDEX</h2>
+            <h1>POKEDEX</h1>
             <Switch>
                 <Route exact path="/" component={PokemonList} />
                 <Route exact path="/pokemon">
