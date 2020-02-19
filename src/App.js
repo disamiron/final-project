@@ -6,46 +6,8 @@ import {
     Link
   } from "react-router-dom";
 import './App.css';
-
-//TODO: fix import
 import PokemonList from "./components/PokemonList/PokemonList.js";
-
-// const pokemons = [
-//     {
-//         id: 1,
-//         name: "pika"
-//     },
-//     {
-//         id: 2,
-//         name: "pika2"
-//     }
-// ];
-
-// const Pokemon = (props) => (
-//     <div>
-//         <span>{props.name}</span>
-//         <span>{props.id}</span>
-//     </div>
-// );
-    
-
-// class PokemonList extends Component {
-//     render() {
-//         return (
-//             <div>
-//             <h1>POKEMONS LIST:</h1>
-//             <div>
-//                 {pokemons.map(pokemon => (
-//                     <Pokemon
-//                         name={pokemon.name}
-//                         id={pokemon.id}
-//                     />
-//                 ))}
-//             </div>
-//             </div>
-//         );
-//     }
-// };
+import PokemonPage from "./components/PokemonPage/PokemonPage.js";
 
 class App extends Component {
     render() {
@@ -54,15 +16,11 @@ class App extends Component {
             <h1>POKEDEX</h1>
             <Switch>
                 <Route exact path="/" component={PokemonList} />
-                <Route exact path="/pokemon">
-                    <h1>Pokemon</h1>
-                </Route>
+                <Route exact path="/:pokemonId" component={PokemonPage} />
             </Switch>
-    </Router>
+        </Router>
         );
     }
 }
-
-
 
 export default App;
