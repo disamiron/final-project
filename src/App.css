@@ -1,10 +1,31 @@
 body {
     font-family: 'Odibee Sans';
+    margin: 0;
 }
 
-h1 {
-    color: #27aedb;
+#root {
     text-align: center;
+}
+
+.menu {
+    font-size: 56px;  
+    background-color: #27aedb;
+    margin: 0;
+    padding: 20px; 
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu a {
+    color: azure;
+    text-decoration: none;
+}
+
+.your-pokemons-button {
+    
+    font-size: 36px;
+    margin-left: 80px;
+    position: absolute;
 }
 
 ul {
@@ -14,14 +35,53 @@ ul {
     justify-content: center;
     align-items: stretch;
     align-content: flex-start;
+    padding: 0;
 }
 
 li {
     list-style-type: none;
     text-align: center;
-    Margin: 15px;
-    Width:calc(33.3333333% - 30px);
+    Width:calc(33%);
     Display: flex;
     Flex-direction: column;
     Align-items: center;
+    margin-bottom: 20px;
+}
+
+li a {
+    width: 60%;
+    min-width: 180px;
+    border: 1px solid lightslategrey;
+    background-color: lightslategrey;
+    border-radius: 20px;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+.pokemon-name {
+    color: azure;
+}
+
+.pokemon-page {
+    width: 20%;
+    min-width: 220px;
+    border-radius: 20px;
+    padding-bottom: 25px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background-color: lightslategrey;
+}
+
+.load-button {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    border: 0px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.loading-info {
+    font-size: 40px;
 }

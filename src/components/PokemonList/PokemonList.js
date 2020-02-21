@@ -5,7 +5,7 @@ import '../../App.css';
 //TODO: Move get pokemons from class to separate file 
 
 
-const limit =24;
+const limit = 24; //количество загружаемых покемонов
 
 class PokemonList extends Component {
   constructor(props) {
@@ -86,7 +86,7 @@ class PokemonList extends Component {
         if (error) {
           return <div>ERROR: {error.message}</div>;
         } else if (!isLoaded) {
-          return <div>LOADING...</div>;
+          return <div className="loading-info">LOADING...</div>;
         } else {
           return (
             <div className="App">
@@ -95,8 +95,10 @@ class PokemonList extends Component {
                 <PokemonCard id={pokemon.id} key={pokemon.id} name={pokemon.name} />
                 ))}
                 </ul>
+
+
               {(page < maxPage) &&
-                (<button onClick={this.loadMore}>LOAD MORE</button>)
+                (<button onClick={this.loadMore} className="load-button">LOAD MORE</button>)
               }
             </div>
         );

@@ -13,9 +13,13 @@ class App extends Component {
     render() {
         return (
         <Router>
-            <h1>POKEDEX</h1>
+            <div className="menu">
+            <Link to={`${"/"}`}>POKEDEX</Link>
+            <Link to={`${"/caught"}`} className="your-pokemons-button">Your pokemons</Link>
+            </div>
             <Switch>
                 <Route exact path="/" component={PokemonList} />
+                <Route exact path="/caught"/>
                 <Route exact path="/:pokemonId" component={PokemonPage} />
             </Switch>
         </Router>

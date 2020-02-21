@@ -12,8 +12,8 @@ const PokemonCard = ({ id, name }) =>
                     className="pokemon-img"
                     src={`../../../pokemons/${id}.png`}                   
                     alt=""
-                    width="100px"
-                    height="100px"
+                    width="170px"
+                    height="170px"
                 />
                 <div className="pokemon-name">{name}</div>
                 </Link>

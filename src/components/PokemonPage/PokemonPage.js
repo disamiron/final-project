@@ -24,13 +24,13 @@ class PokemonPage extends Component {
       }
     render() {
        return (
-           <div className="pokemon-card">
+           <div className="pokemon-page">
                <img
                    className="pokemon-img"
                    src={`../../../pokemons/${this.state.id}.png`}                   
                    alt=""
-                   width="100px"
-                   height="100px"
+                   width="200px"
+                   height="200px"
                />
                <div className="pokemon-name">{this.state.name}</div>
                
