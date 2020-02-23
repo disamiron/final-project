@@ -7,6 +7,7 @@ body {
     text-align: center;
 }
 
+
 .menu {
     font-size: 56px;  
     background-color: #27aedb;
@@ -14,6 +15,7 @@ body {
     padding: 20px; 
     text-align: center;
     margin-bottom: 40px;
+    height: 70px;
 }
 
 .menu a {
@@ -21,13 +23,24 @@ body {
     text-decoration: none;
 }
 
-.your-pokemons-button {
-    
-    font-size: 36px;
+.pokedex-menu {
+    font-size: 56px; 
+    float: left;
     margin-left: 80px;
-    position: absolute;
+}
+.your-pokemon-menu {
+    color: crimson;
+    float: right;
+    font-size: 36px;
+    margin-right: 50px;
+}
+.your-pokemon-menu a {
+    color: darksalmon ;
 }
 
+.content {
+    font-size: 40px;
+}
 ul {
     display: flex;
     flex-direction: row;
@@ -58,6 +71,7 @@ li a {
     padding-bottom: 10px;
 }
 .pokemon-name {
+    font-size: 28px;
     color: azure;
 }
 
@@ -85,3 +99,67 @@ li a {
 .loading-info {
     font-size: 40px;
 }
+
+
+
+.checkbox-menu{
+    margin-top: 10px;
+    width: 60%;
+    min-width: 180px;
+    border: 1px solid lightslategrey;
+    background-color: lightslategrey;
+    border-radius: 20px;
+    height: 45px;
+}
+    .checkbox {    
+        float: left;
+        padding-top: 5px;
+        padding-left: 5%;
+        Width:calc(25%);
+        height: 40px;
+    }
+        input {
+            display: none;
+        }
+        .checkbox-icon {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            background-image: url("./style/not_your_pokemon.png");
+            background-repeat: no-repeat;
+        }
+        input:checked + .checkbox-icon {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            background-image: url("./style/your_pokemon.png");
+            background-repeat: no-repeat;
+        }
+
+
+
+.checkbox-date {
+    
+    height: 40px;
+    float: right;
+    padding-top: 5px;
+    padding-left: 5%;
+    Width:calc(65%);
+}
+
+.checkbox-date-logo {
+    display: flex;
+    min-width: 65%;
+    height: 40px;
+    background-image: url("./style/date.png");
+    background-repeat: no-repeat;
+}
+.checkbox-date-text {
+    padding-left: 40px; 
+    font-size: 28px;
+    color: azure;
+}
+
+
+
+

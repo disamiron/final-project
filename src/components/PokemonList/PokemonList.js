@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import PokemonCard from "../PokemonCard/PokemonCard.js";
 import '../../App.css';
+import { connect } from 'react-redux';
+import { getPokemons } from '../../actions/pokemons.js';
 
-//TODO: Move get pokemons from class to separate file 
+//TODO: data error isloaded, localstorage
 
 
-const limit = 24; //количество загружаемых покемонов
+const limit = 24; 
 
 class PokemonList extends Component {
   constructor(props) {
@@ -13,90 +15,38 @@ class PokemonList extends Component {
       this.state = {
         error: null,
         isLoaded: false,
-        pokemons: [],
-        page: 1,
-        maxPage: 1,
       };
     }
 
-  getPokemons = (page) => {
-    const url = page
-    ? `http://localhost:3000/pokemons?_page=${page}&_limit=${limit}`
-    : "http://localhost:3000/pokemons";
-    return fetch(url).then(res => res.json())
-  }
-
- 
     
-    componentDidMount() {
-      //number of pokemons
-       this.getPokemons()
-        .then(
-          (results) => {
-            this.setState({
-              maxPage: Math.ceil(results.length/limit)
-            })
-          }  
-        )
-        this.getPokemons(1)
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              pokemons: result,
-            });
-          },
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            })
-          }
-        )
-      };
+  componentDidMount() {
+    if (!this.props.pokemons.length) {
+    this.props.loadPokemons();
+    this.props.loadPokemons(1);
+  }
+};
 
-//fetch data and update state. new state should have old pokemons and new path
-    loadMore=()=>{
-     
-      const {page, pokemons} = this.state;
-      this.getPokemons(page+1)
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            pokemons: [
-              ...pokemons,
-              ...result
-            ],
-            page: page + 1
-          });
-        },
 
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          })
-        }
-      )
+    loadMore = () => {  
+      const {page} = this.props;
+      this.props.loadPokemons(page+1);
     };
 
     render() {
-        const { error, isLoaded, pokemons, page, maxPage } = this.state;
+        const { error } = this.state;
+        const { pokemons, maxPage, page } = this.props;
         if (error) {
           return <div>ERROR: {error.message}</div>;
-        } else if (!isLoaded) {
-          return <div className="loading-info">LOADING...</div>;
         } else {
           return (
+            
             <div className="App">
+              <div className="content">Pokemons library</div>
                 <ul className="pokemon-list">
                 {pokemons.map((pokemon) => (
-                <PokemonCard id={pokemon.id} key={pokemon.id} name={pokemon.name} />
+                <PokemonCard id={pokemon.id} key={pokemon.id} name={pokemon.name} isCaught={pokemon.isСaught} caughtDate={pokemon.caughtDate}/>
                 ))}
                 </ul>
-
-
               {(page < maxPage) &&
                 (<button onClick={this.loadMore} className="load-button">LOAD MORE</button>)
               }
@@ -106,4 +56,17 @@ class PokemonList extends Component {
     }
 }
 
-export default PokemonList;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadPokemons: (arg) => dispatch(getPokemons(arg))
+    };
+}
+const mapStateToProps = (state) => {
+    return {
+        pokemons: state.pokemons.data,
+        maxPage: state.pokemons.maxPage,
+        page: state.pokemons.page,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);

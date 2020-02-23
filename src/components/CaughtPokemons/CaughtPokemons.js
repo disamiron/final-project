@@ -10,9 +10,9 @@ class CaughtPokemons extends Component {
     return (
 
       <div className="App">
-        <div className="content">Pokemon page</div>
+        <div className="content">Your pokemons</div>
         <ul className="pokemon-list">
-          {pokemons.filter((pokemon) => (pokemon.id == this.props.match.params.pokemonId)).map((selectedPokemon) => (
+          {pokemons.filter((pokemon) => pokemon.isСaught).map((selectedPokemon) => (
             <PokemonCard id={selectedPokemon.id} key={selectedPokemon.id} name={selectedPokemon.name} isCaught={selectedPokemon.isСaught} caughtDate={selectedPokemon.caughtDate} />
           ))}
         </ul>
