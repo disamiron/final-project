@@ -4,20 +4,7 @@ import '../../App.css';
 import { connect } from 'react-redux';
 import { getPokemons } from '../../actions/pokemons.js';
 
-//TODO: data error isloaded, localstorage
-
-
-const limit = 24; 
-
 class PokemonList extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        error: null,
-        isLoaded: false,
-      };
-    }
-
     
   componentDidMount() {
     if (!this.props.pokemons.length) {
@@ -26,20 +13,15 @@ class PokemonList extends Component {
   }
 };
 
-
     loadMore = () => {  
       const {page} = this.props;
       this.props.loadPokemons(page+1);
     };
 
     render() {
-        const { error } = this.state;
+
         const { pokemons, maxPage, page } = this.props;
-        if (error) {
-          return <div>ERROR: {error.message}</div>;
-        } else {
           return (
-            
             <div className="App">
               <div className="content">Pokemons library</div>
                 <ul className="pokemon-list">
@@ -51,10 +33,10 @@ class PokemonList extends Component {
                 (<button onClick={this.loadMore} className="load-button">LOAD MORE</button>)
               }
             </div>
-        );
-      }
+          );
     }
-}
+  }
+
 
 const mapDispatchToProps = (dispatch) => {
     return {

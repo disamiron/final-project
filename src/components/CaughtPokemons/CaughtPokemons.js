@@ -21,11 +21,9 @@ class CaughtPokemons extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
 
-});
 const mapStateToProps = (state) => ({
   pokemons: state.pokemons.data,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CaughtPokemons);
+export default connect(mapStateToProps, () => {})(CaughtPokemons);

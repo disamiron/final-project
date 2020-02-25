@@ -4,11 +4,10 @@ import '../../App.css';
 import { connect } from 'react-redux';
 
 
-class CaughtPokemons extends Component {
+class PokemonPage extends Component {
   render() {
     const { pokemons } = this.props;
     return (
-
       <div className="App">
         <div className="content">Pokemon page</div>
         <ul className="pokemon-list">
@@ -21,11 +20,8 @@ class CaughtPokemons extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
 const mapStateToProps = (state) => ({
   pokemons: state.pokemons.data,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CaughtPokemons);
+export default connect(mapStateToProps, () => {})(PokemonPage);

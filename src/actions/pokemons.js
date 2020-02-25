@@ -16,7 +16,7 @@ export const getPokemons = (page) => {
         dispatch({
           type: GET_POKEMONS_SUCCESS,
           payload: {
-            data: response.map((pokemon) => ({ ...pokemon, isСaught: false, caughtDate: null })),
+            data: response.map((pokemon) => ({ ...pokemon, isСaught: false, caughtDate: "Not yours" })),
             page,
           },
         });
@@ -46,7 +46,7 @@ export const caughtPokemon = (id, isCaught) => (dispatch, getState) => {
 
     var todayDate = (`${month[d.getMonth()]} ${d.getDate()}`);
   } else {
-    todayDate = null;
+    todayDate = "Not yours";
   }
   const newPokemons = pokemonsList.map((pokemon) => {
     if (pokemon.id === id) {
